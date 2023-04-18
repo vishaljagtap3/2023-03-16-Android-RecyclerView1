@@ -1,6 +1,7 @@
 package com.bitcodetech.recyclerview1
 
 import android.graphics.Color
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -13,12 +14,16 @@ class CitiesAdapter(
     private val cities : ArrayList<String>
 ) : RecyclerView.Adapter<CitiesAdapter.CityViewHolder>() {
 
+    var countOfOnCreate = 0
+
     class CityViewHolder(val txtCity : TextView) : ViewHolder(txtCity)
 
 
     override fun getItemCount() = cities.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityViewHolder {
+
+        Log.e("tag", "onCreateViewHolder ${++countOfOnCreate}")
 
         val random = Random(System.currentTimeMillis())
 
@@ -27,7 +32,8 @@ class CitiesAdapter(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
-        txtCity.textSize = 30F
+        txtCity.textSize = 25F
+        txtCity.setPadding(10, 10, 10, 10)
         txtCity.setTextColor(Color.WHITE)
         txtCity.setBackgroundColor(
             Color.rgb(
@@ -42,7 +48,8 @@ class CitiesAdapter(
     }
 
     override fun onBindViewHolder(holder: CityViewHolder, position: Int) {
-        holder.txtCity.text = cities[position]
+        //holder.txtCity.text = cities[position]
+        holder.txtCity.append(" | " + cities[position])
     }
 
 

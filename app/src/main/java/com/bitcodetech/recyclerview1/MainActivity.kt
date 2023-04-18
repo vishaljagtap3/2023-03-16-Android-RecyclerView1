@@ -40,22 +40,22 @@ class MainActivity : AppCompatActivity() {
         citiesAdapter = CitiesAdapter(cities)
         recyclerCities.adapter = citiesAdapter
 
-        /*val linearLayoutManager = LinearLayoutManager(
+        val linearLayoutManager = LinearLayoutManager(
             this,
             LinearLayoutManager.VERTICAL,
             false
         )
-        recyclerCities.layoutManager = linearLayoutManager*/
+        recyclerCities.layoutManager = linearLayoutManager
 
         /*recyclerCities.layoutManager = GridLayoutManager(
             this,
             3
         )*/
 
-        recyclerCities.layoutManager = StaggeredGridLayoutManager(
+        /*recyclerCities.layoutManager = StaggeredGridLayoutManager(
             3,
             StaggeredGridLayoutManager.VERTICAL
-        )
+        )*/
     }
 }
 
